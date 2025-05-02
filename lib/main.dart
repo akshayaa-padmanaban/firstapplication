@@ -7,7 +7,6 @@ void main() {
 }
 
 class LoginScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +25,6 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
           ),
-
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -41,48 +39,61 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           Center(
-            child: Container(
-              width: 250,
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
-              decoration: BoxDecoration(
-                color: Color(0xFFB993D6).withOpacity(0.7),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const SizedBox(height: 20),
-                  _inputField(Icons.person, "User Name"),
-                  const SizedBox(height: 16),
-                  _inputField(Icons.lock, "Password", obscureText: true),
-                  const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      const Spacer(),
-                      const Text("Forgot Password", style: TextStyle(color: Colors.black)),
-                    ],
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: 140,
+                  child: Image.asset(
+                    'assets/images/logo.jpg',
+                    fit: BoxFit.contain,
                   ),
-                  const SizedBox(height: 24),
-                  Container(
-                    width: double.infinity,
-                    height: 45,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF8CA6DB).withOpacity(0.4),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        "LOGIN",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1.2,
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  width: 250,
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFB993D6).withOpacity(0.7),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const SizedBox(height: 20),
+                      _inputField(Icons.person, "User Name"),
+                      const SizedBox(height: 16),
+                      _inputField(Icons.lock, "Password", obscureText: true),
+                      const SizedBox(height: 16),
+                      Row(
+                        children: const [
+                          Spacer(),
+                          Text("Forgot Password", style: TextStyle(color: Colors.black)),
+                        ],
+                      ),
+                      const SizedBox(height: 24),
+                      Container(
+                        width: double.infinity,
+                        height: 45,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF8CA6DB).withOpacity(0.4),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            "LOGIN",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1.2,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],
