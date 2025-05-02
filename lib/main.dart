@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dashboard.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -52,9 +53,10 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 Container(
                   width: 250,
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 24, vertical: 32),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFB993D6).withOpacity(0.7),
+                    color: Color(0xFFB993D6).withOpacity(0.7),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Column(
@@ -66,27 +68,36 @@ class LoginScreen extends StatelessWidget {
                       _inputField(Icons.lock, "Password", obscureText: true),
                       const SizedBox(height: 16),
                       Row(
-                        children: const [
-                          Spacer(),
-                          Text("Forgot Password", style: TextStyle(color: Colors.black)),
+                        children: [
+                          const Spacer(),
+                          const Text(
+                            "Forgot Password",
+                            style: TextStyle(color: Colors.black),
+                          ),
                         ],
                       ),
                       const SizedBox(height: 24),
-                      Container(
-                        width: double.infinity,
-                        height: 45,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF8CA6DB).withOpacity(0.4),
-                          borderRadius: BorderRadius.circular(30),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Dashboard()),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFF8CA6DB).withOpacity(0.4),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          minimumSize: const Size.fromHeight(45),
                         ),
-                        child: const Center(
-                          child: Text(
-                            "LOGIN",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1.2,
-                            ),
+                        child: const Text(
+                          "LOGIN",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1.2,
                           ),
                         ),
                       ),
